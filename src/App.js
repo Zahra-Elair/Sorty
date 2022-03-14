@@ -3,7 +3,7 @@ import SideBar from "./components/SideBar";
 import Body from "./components/Body";
 import { drawChart, randomArray } from "./functions/Tools";
 const App = () => {
-  const arrayLength = 15;
+  const arrayLength = 10;
 
   const [Type, setType] = useState("");
   const [speed, setSpeed] = useState(1000);
@@ -11,8 +11,12 @@ const App = () => {
 
   useEffect(() => {
     setArray(randomArray(arrayLength, 100));
-    drawChart(array, arrayLength);
+    document.getElementById("speed").disabled = false;
   }, [Type]);
+
+  useEffect(() => {
+    drawChart(array, arrayLength);
+  }, [array]);
 
   return (
     <div className="App">

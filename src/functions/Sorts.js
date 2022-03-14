@@ -5,6 +5,7 @@ export class sort {
     this.array = array;
     this.sortedArray = [];
     this.columns = document.querySelectorAll(".column");
+    this.id = 0;
   }
 
   selectionSort(arr) {
@@ -61,6 +62,7 @@ export class sort {
           let tmp = array[j];
           array[j] = array[j + 1];
           array[j + 1] = tmp;
+
           isSwapped = true;
         }
       }
@@ -73,7 +75,7 @@ export class sort {
     this.sortedArray = sortedArray;
   }
 
-  start() {
+  async start() {
     switch (this.type) {
       case "Bubble Sort":
         this.bubbleSort(this.array);
@@ -87,10 +89,17 @@ export class sort {
       default:
         break;
     }
-    for (let i = 0; i < this.sortedArray.length; i++) {
-      this.swap(
-        this.sortedArray[i][0],
-        this.sortedArray[i][1],
+    await this.sorting();
+  }
+
+  async sorting() {
+    for (let i = 0; i < this.columns.length; i++) {
+      this.columns[i].classList.remove("selected");
+    }
+    while (this.sortedArray.length > 0) {
+      await this.swap(
+        this.sortedArray[0][0],
+        this.sortedArray[0][1],
         this.columns,
         this.speed
       );
@@ -108,20 +117,20 @@ export class sort {
     columns[j].setAttribute("value", k1);
     columns[i].style.height = `${k2 * 3}px`;
     columns[j].style.height = `${k1 * 3}px`;
-    await delay(1000);
+    await this.delay(speed);
     columns[i].classList.remove("selected");
     columns[j].classList.remove("selected");
   };
-}
+  stop() {
+    clearTimeout(this.id);
+    this.sortedArray.shift();
+  }
 
-//************************************************************************************************************************ */
-//************************************************************************************************************************ */
-//************************************************************************************************************************ */
-
-function delay(delayInms) {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve();
-    }, delayInms);
-  });
+  delay(delayInms) {
+    return new Promise((resolve) => {
+      this.id = setTimeout(() => {
+        resolve();
+      }, delayInms);
+    });
+  }
 }

@@ -1,16 +1,30 @@
-import React, { useEffect, useState } from "react";
 import { sort } from "../functions/Sorts";
 
 const Body = ({ Type, speed, array }) => {
-  const [play, setPlay] = useState(true);
-
-  useEffect(() => {}, [play]);
+  let play = true;
+  let a;
 
   const sorting = () => {
-    let a = new sort(Type, speed, array);
-    a.start();
+    if (!a) {
+      a = new sort(Type, speed, array);
+      play = false;
+      document.getElementById("speed").disabled = true;
+      a.start();
+    } else {
+      if (play) {
+        a.sorting();
+        play = false;
+      }
+    }
   };
-  const btnPause = () => {};
+  const btnPause = () => {
+    if (a) {
+      if (!play) {
+        a.stop();
+        play = true;
+      }
+    }
+  };
 
   return (
     <div className="main">
