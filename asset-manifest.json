@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Sorty/static/css/main.da74667f.css",
+    "main.js": "/Sorty/static/js/main.8f651074.js",
+    "index.html": "/Sorty/index.html",
+    "main.da74667f.css.map": "/Sorty/static/css/main.da74667f.css.map",
+    "main.8f651074.js.map": "/Sorty/static/js/main.8f651074.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.da74667f.css",
+    "static/js/main.8f651074.js"
+  ]
+}
