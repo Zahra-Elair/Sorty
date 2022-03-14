@@ -1,3 +1,8 @@
+# Sorty
+
+Sorty is a web app that allows users to simulate how a sorting algorithm
+works like the "Selection Sort" , "Insertion Sort" and the "Bubble Sort"
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
