@@ -1,4 +1,5 @@
 import { sort } from "../functions/Sorts";
+import { motion } from "framer-motion";
 
 const Body = ({ Type, speed, array }) => {
   let play = true;
@@ -27,7 +28,12 @@ const Body = ({ Type, speed, array }) => {
   };
 
   return (
-    <div className="main">
+    <motion.div
+      className="main"
+      initial={{ x: "+100vw" }}
+      animate={{ x: 0 }}
+      transition={{ duration: 0.5 }}
+    >
       <div className="chart" id="chart"></div>
       <div className="info">
         <h3>{Type}</h3>
@@ -36,7 +42,7 @@ const Body = ({ Type, speed, array }) => {
           <i className="fas fa-play icon" onClick={() => sorting()}></i>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -1,12 +1,29 @@
-import React from "react";
+import { randomArray } from "../functions/Tools";
+import { motion } from "framer-motion";
 
-const SideBar = ({ setType, setSpeed }) => {
+const SideBar = ({
+  setType,
+  setSpeed,
+  setArray,
+  arrayLength,
+  setArrayLength,
+}) => {
   const click = (msg) => {
     setType(msg);
+    setArray(randomArray(arrayLength, 100));
+  };
+
+  const changeArray = (length) => {
+    setArrayLength(length);
+    setArray(randomArray(length, 100));
   };
 
   return (
-    <div>
+    <motion.div
+      initial={{ y: "+100vh" }}
+      animate={{ y: 0 }}
+      transition={{ duration: 1 }}
+    >
       <div className="mostatil">
         <h2 className="title">SEARCHING ALGORITHMS VISUALISATION</h2>
         <h4
@@ -50,8 +67,23 @@ const SideBar = ({ setType, setSpeed }) => {
             <option value="500">2x</option>
           </select>
         </div>
+
+        <div className="speed">
+          <h4>Size :</h4>
+          <select
+            className="box"
+            onChange={(e) => {
+              changeArray(parseInt(e.target.value));
+            }}
+            defaultValue="20"
+          >
+            <option value="15">15</option>
+            <option value="20">20</option>
+            <option value="30">30</option>
+          </select>
+        </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
