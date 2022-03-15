@@ -147,10 +147,13 @@
 }
 .choose {
   width: 100%;
-  text-align: center;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 950px) {
   .App {
     flex-direction: column;
   }

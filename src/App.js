@@ -25,14 +25,14 @@ const App = () => {
         setArrayLength={setArrayLength}
       />
       {!Type && (
-        <motion.h1
+        <motion.div
           className="choose"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 2, delay: 1 }}
         >
-          Choose a sort method !
-        </motion.h1>
+          <h1>Choose a sort method !</h1>
+        </motion.div>
       )}
       {Type && <Body Type={Type} speed={speed} array={array} />}
     </div>
