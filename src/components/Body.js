@@ -38,8 +38,12 @@ const Body = ({ Type, speed, array }) => {
       <div className="info">
         <h3>{Type}</h3>
         <div className="icons">
-          <i className="fas fa-pause icon" onClick={() => btnPause()}></i>
-          <i className="fas fa-play icon" onClick={() => sorting()}></i>
+          <button onClick={() => btnPause()} className="button-30">
+            <i className="fas fa-pause icon"></i>
+          </button>
+          <button onClick={() => sorting()} className="button-30">
+            <i className="fas fa-play icon"></i>
+          </button>
         </div>
       </div>
     </motion.div>
