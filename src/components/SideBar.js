@@ -87,6 +87,18 @@ const SideBar = ({
           </div>
         </div>
       </div>
+      <div className="footer">
+        <p>
+          Made With <span>💜</span> By{"  "}
+        </p>
+        <a
+          href="https://github.com/Zahra-Elair"
+          target="noreferrer _blank"
+          className="credits"
+        >
+          Zahra Elair
+        </a>
+      </div>
     </motion.div>
   );
 };
